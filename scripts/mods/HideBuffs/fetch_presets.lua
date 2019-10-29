@@ -6,10 +6,12 @@ mod.presets_page = 1
 
 mod.fetch_presets_cb = function (self, success, code, headers, data, userdata) -- luacheck: no unused
 	if not success then
+		mod:echo("Failed to fetch presets!")
 		return
 	end
 
 	if code ~= 200 then
+		mod:echo("Failed to fetch presets!")
 		return
 	end
 
@@ -91,5 +93,5 @@ mod.set_presets_page = function(page_index)
 	end)
 end
 
-mod:command("ut_preset_page", "Show presets at the page specified, e.g. /up_presets_page 1", function(...) mod.set_presets_page(...) end)
+mod:command("ut_preset_page", "Show presets at the page specified, e.g. /ut_presets_page 1", function(...) mod.set_presets_page(...) end)
 mod:command("ut_fetch_presets", "Fetch the presets.", function(...) mod.fetch_presets(...) end)
