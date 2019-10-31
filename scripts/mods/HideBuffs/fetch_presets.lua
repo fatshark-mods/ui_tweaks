@@ -75,6 +75,11 @@ mod.set_presets_page = function(page_index)
 			return
 		end
 
+		if not tonumber(page_index) then
+			mod:echo("Page number not entered corretly!")
+			return
+		end
+
 		if not mod.fetched_snippets then
 			mod:echo("Fetching presets...")
 			mod.fetch_presets()
