@@ -60,6 +60,16 @@ mod.SETTING_NAMES = {
 	UNOBTRUSIVE_MISSION_TOOLTIP = "UNOBTRUSIVE_MISSION_TOOLTIP",
 	CHAT_BG_ALPHA = "CHAT_BG_ALPHA",
 	AMMO_DIVIDER_TEXT = "AMMO_DIVIDER_TEXT",
+	GK_QUESTS_OFFSET_X = "GK_QUESTS_OFFSET_X",
+	GK_QUESTS_OFFSET_Y = "GK_QUESTS_OFFSET_Y",
+	GK_QUESTS_ALPHA = "GK_QUESTS_ALPHA",
+	DODGE_COUNT = "DODGE_COUNT",
+	DCUI_ALWAYS_ON = "dcui_always_on",
+	DCUI_DISPLAY_COOLDOWN = "dcui_display_cooldown",
+	DCUI_OFFSET_X = "dcui_offset_x",
+	DCUI_OFFSET_Y = "dcui_offset_y",
+	DCUI_FONT_SIZE = "dcui_font_size",
+	DCUI_CD_FONT_SIZE = "dcui_cd_font_size",
 }
 
 mod.sorted_priority_buffs = {
@@ -620,6 +630,61 @@ local player_ui_group =
 			["range"] = {-2500, 2500},
 			["unit_text"] = "px",
 			["default_value"] = 0,
+		},
+		{
+			["setting_name"] = mod.SETTING_NAMES.DODGE_COUNT,
+			["widget_type"] = "checkbox",
+			["text"] = mod:localize("dodge_count"),
+			["tooltip"] = mod:localize("dodge_count_tooltip"),
+			["default_value"] = false,
+			["sub_widgets"] = {
+				{
+					setting_name = "dcui_always_on",
+					text = mod:localize("dcui_always_on"),
+					tooltip = mod:localize("dcui_always_on_description"),
+					widget_type = "checkbox",
+					default_value = true,
+				},
+				{
+					setting_name = "dcui_display_cooldown",
+					text = mod:localize("dcui_display_cooldown"),
+					tooltip = mod:localize("dcui_display_cooldown_description"),
+					widget_type = "checkbox",
+					default_value = false,
+				},
+				{
+					setting_name = "dcui_offset_x",
+					text = mod:localize("dcui_offset_x"),
+					tooltip = mod:localize("dcui_offset_x_description"),
+					widget_type = "numeric",
+					default_value = 900,
+					range = { -960, 960 },
+				},
+				{
+					setting_name = "dcui_offset_y",
+					text = mod:localize("dcui_offset_y"),
+					tooltip = mod:localize("dcui_offset_y_description"),
+					widget_type = "numeric",
+					default_value = 430,
+					range = { -540, 540 },
+				},
+				{
+					setting_name = "dcui_font_size",
+					text = mod:localize("dcui_font_size"),
+					tooltip = mod:localize("dcui_font_size_description"),
+					widget_type = "numeric",
+					default_value = 32,
+					range = { 8, 128 },
+				},
+				{
+					setting_name = "dcui_cd_font_size",
+					text = mod:localize("dcui_cd_font_size"),
+					tooltip = mod:localize("dcui_cd_font_size_description"),
+					widget_type = "numeric",
+					default_value = 24,
+					range = { 8, 128 },
+				},
+			},
 		},
 	},
 }
@@ -2376,6 +2441,41 @@ mod.add_option(
 	},
 	"Boss HP Bar Offset Y",
 	"Optionally offset the Boss HP Bar on the y axis.",
+	other_elements_subs
+)
+mod.add_option(
+	"GK_QUESTS_OFFSET_X",
+	{
+		["widget_type"] = "numeric",
+		["range"] = {-2000, 2000},
+		["unit_text"] = "px",
+		["default_value"] = 0,
+	},
+	"Grail Knight Quests Offset X",
+	"Optionally offset the Grail Knight Quests on the x axis.",
+	other_elements_subs
+)
+mod.add_option(
+	"GK_QUESTS_OFFSET_Y",
+	{
+		["widget_type"] = "numeric",
+		["range"] = {-2000, 2000},
+		["unit_text"] = "px",
+		["default_value"] = 0,
+	},
+	"Grail Knight Quests Offset Y",
+	"Optionally offset the Grail Knight Quests on the y axis.",
+	other_elements_subs
+)
+mod.add_option(
+	"GK_QUESTS_ALPHA",
+	{
+		["widget_type"] = "numeric",
+		["range"] = {0, 255},
+		["default_value"] = 200,
+	},
+	"Grail Knight Quests Opacity",
+	"Adjust Grail Knight Quests background transparency, 0 is fully transparent.\nDefault is 200.",
 	other_elements_subs
 )
 
