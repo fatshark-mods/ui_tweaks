@@ -1027,64 +1027,6 @@ custom_buffs_subwidgets.PLAYER_UI_CUSTOM_BUFFS_TEMP_HP =
 		custom_buffs_subs
 	)
 
-custom_buffs_subwidgets.PLAYER_UI_CUSTOM_BUFFS_DMG_TAKEN =
-	mod.add_option(
-		"PLAYER_UI_CUSTOM_BUFFS_DMG_TAKEN",
-		{
-			["widget_type"] = "checkbox",
-			["default_value"] = false,
-		},
-		"Buff For Recent Damage Taken",
-		"Show a buff that tracks temp recent damage taken.",
-		custom_buffs_subs
-	)
-
-local custom_buffs_dps_subwidgets =
-	mod.add_option(
-		"PLAYER_UI_CUSTOM_BUFFS_DPS",
-		{
-			["widget_type"] = "checkbox",
-			["default_value"] = false,
-		},
-		"Buff For Tracking DPS",
-		"Show a buff that tracks dps through the whole map.",
-		custom_buffs_subs
-	)
-mod.add_option(
-	"PLAYER_UI_CUSTOM_BUFFS_DPS_HOTKEY",
-	{
-		["widget_type"] = "keybind",
-		["default_value"] = {},
-		["action"] = "reset_dps_buff"
-	},
-	"Reset DPS Hotkey",
-	"Reset the DPS counter.",
-	custom_buffs_dps_subwidgets
-)
-
-custom_buffs_subwidgets.PLAYER_UI_CUSTOM_BUFFS_DPS_TIMED =
-	mod.add_option(
-		"PLAYER_UI_CUSTOM_BUFFS_DPS_TIMED",
-		{
-			["widget_type"] = "checkbox",
-			["default_value"] = false,
-		},
-		"Buff For Tracking Temporary DPS",
-		"Show a buff that tracks dps throughout the duration.",
-		custom_buffs_subs
-	)
-mod.add_option(
-	"PLAYER_UI_CUSTOM_BUFFS_DPS_TIMED_HOTKEY",
-	{
-		["widget_type"] = "keybind",
-		["default_value"] = {},
-		["action"] = "reset_dps_timed_buff"
-	},
-	"Reset Temporary DPS Hotkey",
-	"Reset the temporary DPS counter.",
-	custom_buffs_subwidgets.PLAYER_UI_CUSTOM_BUFFS_DPS_TIMED
-)
-
 for setting_name, subwidgets in pairs( custom_buffs_subwidgets ) do
 	mod.add_option(
 		setting_name.."_DURATION",
@@ -2327,18 +2269,6 @@ mod.add_option(
 	7
 )
 
-mod.add_option(
-	"FASTER_CHEST_OPENING",
-	{
-		["widget_type"] = "checkbox",
-		["default_value"] = false,
-	},
-	"Faster Chest Opening",
-	"Make the chest opening animations faster.",
-	nil,
-	2
-)
-
 local other_elements_subs = mod.add_option(
 	"OTHER_ELEMENTS_GROUP",
 	{
@@ -2523,18 +2453,6 @@ mod.add_option(
 	"Show Outside Keep",
 	"Show during normal maps.",
 	show_presets_subs
-)
-
-mod.add_option(
-	"SHOW_PRESETS_ADDED_WELCOME_MSG",
-	{
-		["widget_type"] = "checkbox",
-		["default_value"] = true,
-	},
-	"Show Welcome Message",
-	"Show the welcome message in chat.",
-	nil,
-	1
 )
 
 mod.setting_parents = {}
